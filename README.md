@@ -44,13 +44,13 @@ describe('My parsejs app', function () {
 
     expect(getUser()).toBeUndefined();
     loadUser(); //invoke function that initiates a request to parse and returns
-    expect(getUser().name).toBeDefined(0);
-    Abuse.loadReportedPosts();
-    expect(stub.callCount).toEqual(1); //do assertions on stub object
+    expect(getUser()).toBeDefined();
+
+    expect(stub.callCount).toEqual(1); //do assertions on stub object if necessary
   }));
 
   afterEach(inject(function () {
-    Parse.Mock.clearStubs(); //manually restore stubs
+    Parse.Mock.clearStubs(); //manually dispose of stubs
   }));
 
 
