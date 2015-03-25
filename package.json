@@ -1,6 +1,6 @@
 {
   "name": "parse-mock",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Parsejs unit testing library",
   "main": "src/parse-mock.js",
   "engines": {
