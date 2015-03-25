@@ -44,14 +44,15 @@ module.exports = function (config) {
 describe('My parsejs app', function () {
 
   it('should load some data from parse', function () {
-    var stub = Parse.Mock.stubRequest(function (options) {
+    var stub = Parse.Mock.stubQueryFind(function (options) {
       return [new Parse.Object('User', {name: 'Antony'})]
     });
 
     expect(getUser()).toBeUndefined();
-    loadUser(); //invoke function that initiates a request to parse and returns
-    expect(getUser()).toBeDefined();
 
+    loadUser(); //function that invokes Query.find
+
+    expect(getUser()).toBeDefined();
     expect(stub.callCount).toEqual(1); //do assertions on stub object if necessary
   }));
 
