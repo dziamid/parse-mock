@@ -3,13 +3,13 @@
 Parse Mock
 =====================
 
-A collection of stubs to ease unit-testing of Parse.js based applications.
+A collection of stubs to ease unit-testing of Parse.com services.
 
 - Seamless Parse integration. New Mock Object
 - Use with any testing framework
 - Only sinon as a dependency
 
-Brought to you by the DashBouquet team.
+Brought to you by the [DashBouquet](http://dashbouquet.com) team.
 
 
 ## Installation
