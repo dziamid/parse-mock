@@ -56,7 +56,7 @@ Parse.Mock = _.extend(stubMethods, {
   clearStubs: clearStubs
 });
 
-module.exports = Parse;
+module.exports = Parse.Mock;
 
 function registerStub(stub) {
   registeredStubs.push(stub);
@@ -84,6 +84,12 @@ function queryToJSON(query) {
  * @returns {*}
  */
 function addDefaultFields(data) {
+  if (Array.isArray(data)) {
+    return _.map(data, function (d) {
+      addDefaultFields(d);
+    })
+  }
+
   //todo: loop if array passed
   //todo: walk model recursively
   //todo: don't override if exists
