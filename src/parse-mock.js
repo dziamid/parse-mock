@@ -5,18 +5,24 @@ var _ = require('lodash'),
   lastObjectId = 1,
   registeredStubs = [],
 
-  stubMethods = {
-    stubRequest: [Parse, '_request'],
-    stubCollectionFetch: [Parse.Collection.prototype, 'fetch'],
-    stubConfigGet: [Parse.Config, 'get'],
-    stubQueryFind: [Parse.Query.prototype, 'find'],
-    stubQueryFirst: [Parse.Query.prototype, 'first'],
-    stubQueryGet: [Parse.Query.prototype, 'get'],
-    stubQueryCount: [Parse.Query.prototype, 'count'],
-    stubObjectSave: [Parse.Object.prototype, 'save'],
-    stubObjectFetch: [Parse.Object.prototype, 'fetch'],
-    stubObjectDestroy: [Parse.Object.prototype, 'destroy']
-  };
+  stubMethods;
+
+if (typeof Parse.Parse != 'undefined') {
+  Parse = Parse.Parse;
+}
+
+stubMethods = {
+  stubRequest: [Parse, '_request'],
+  stubCollectionFetch: [Parse.Collection.prototype, 'fetch'],
+  stubConfigGet: [Parse.Config, 'get'],
+  stubQueryFind: [Parse.Query.prototype, 'find'],
+  stubQueryFirst: [Parse.Query.prototype, 'first'],
+  stubQueryGet: [Parse.Query.prototype, 'get'],
+  stubQueryCount: [Parse.Query.prototype, 'count'],
+  stubObjectSave: [Parse.Object.prototype, 'save'],
+  stubObjectFetch: [Parse.Object.prototype, 'fetch'],
+  stubObjectDestroy: [Parse.Object.prototype, 'destroy']
+};
 
 for (var key in stubMethods) {
   var object = stubMethods[key][0],
@@ -44,9 +50,11 @@ for (var key in stubMethods) {
 
 }
 
-Parse.Mock = module.exports = _.extend(stubMethods, {
+Parse.Mock = _.extend(stubMethods, {
   clearStubs: clearStubs
 });
+
+module.exports = Parse;
 
 function registerStub(stub) {
   registeredStubs.push(stub);
