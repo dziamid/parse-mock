@@ -83,10 +83,11 @@ function queryToJSON(query) {
  * @param data Array|Parse.Object
  * @returns {*}
  */
+
 function addDefaultFields(data) {
   if (Array.isArray(data)) {
     return _.map(data, function (d) {
-      addDefaultFields(d);
+      return addDefaultFields(d);
     })
   }
 
