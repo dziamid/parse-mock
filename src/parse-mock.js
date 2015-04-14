@@ -93,7 +93,7 @@ function addDefaultFields(data) {
   //todo: walk model recursively
   //todo: don't override if exists
 
-  return _.extend(data, {
+  return _.defaults(data, {
     id: lastObjectId++,
     createdAt: new Date(),
     updatedAt: new Date()
