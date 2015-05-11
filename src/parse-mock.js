@@ -40,8 +40,6 @@ for (var key in stubMethods) {
 
         promise.resolve(data);
 
-        console.log('stub resolved');
-
         return promise;
       }));
 
