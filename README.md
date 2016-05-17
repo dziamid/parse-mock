@@ -3,6 +3,13 @@
 Parse Mock
 =====================
 
+## Important notice
+
+This repo is not maintained. Please use any of these instead:
+
+ - https://github.com/thedistricts/parse-mockdb
+ - https://github.com/HustleInc/parse-mockdb
+ 
 A collection of stubs to ease unit-testing of Parse.com services.
 
 - Seamless Parse integration. New Mock Object
